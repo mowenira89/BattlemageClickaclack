@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://c4g3najvdc7s2"]
+
+[ext_resource type="Script" path="res://scripts/player_data.gd" id="1_jkc0u"]
+
+[resource]
+script = ExtResource("1_jkc0u")
+species = "Dwarf"
+max_hp = 30
+hp = 30
+max_mp = 5
+mp = 5
+melee = 5
+magic = 2
+melee_def = 5
+magic_def = 3
+evasion = 4
+accuracy = 100
+crit = 1
+gold = 0
+weakness = Array[int]([])
+resistance = Array[int]([])

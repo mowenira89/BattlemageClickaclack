@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://ytdspl2loerg"]
+
+[ext_resource type="Texture2D" uid="uid://1smmysmxtd3q" path="res://images/enemies/figurine.png" id="1_b1noh"]
+[ext_resource type="Script" path="res://scripts/enemy_data.gd" id="2_82oqo"]
+
+[resource]
+script = ExtResource("2_82oqo")
+image = ExtResource("1_b1noh")
+name = "Empty Figurine"
+data_name = "figurine"
+type = 6
+level = 1
+rarity = 40
+boss = false
+flavor_text = "A souless wooden figurine, carved with malice."
+max_hp = 3
+hp = 3
+max_mp = 0
+mp = 0
+melee = 0
+magic = 0
+melee_def = 0
+magic_def = 0
+evasion = 0
+accuracy = 0
+crit = 0
+gold = 2
+weakness = Array[int]([3])
+resistance = Array[int]([])

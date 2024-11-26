@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://yhrd2rctsfjj"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_0v277"]
+[ext_resource type="Texture2D" uid="uid://cyo4m1sd5aadu" path="res://images/backdrop.png" id="1_1oavq"]
+[ext_resource type="Theme" uid="uid://dgs8leglpsus8" path="res://Themes/blackfont38.tres" id="3_46m08"]
+[ext_resource type="PackedScene" uid="uid://qshaj6yib8ap" path="res://scenes/enemy.tscn" id="4_7bxxh"]
+[ext_resource type="PackedScene" uid="uid://b5cdl2cxcrwy" path="res://scenes/ui/welcome_panel.tscn" id="4_g8qtr"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_gs43n"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0v277")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(958, 716)
+scale = Vector2(1.33919, 1)
+texture = ExtResource("1_1oavq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 28.0
+offset_right = 457.0
+offset_bottom = 197.0
+
+[node name="EnemyHPBar" type="ProgressBar" parent="CanvasLayer/GridContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+show_percentage = false
+
+[node name="EnemyNameLabel" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_46m08")
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer"]
+offset_left = 1420.0
+offset_top = 11.0
+offset_right = 1460.0
+offset_bottom = 51.0
+columns = 2
+
+[node name="HP" type="Label" parent="CanvasLayer/GridContainer2"]
+layout_mode = 2
+theme = ExtResource("3_46m08")
+text = "HP "
+
+[node name="HPBar" type="ProgressBar" parent="CanvasLayer/GridContainer2"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+show_percentage = false
+
+[node name="MP" type="Label" parent="CanvasLayer/GridContainer2"]
+layout_mode = 2
+theme = ExtResource("3_46m08")
+text = "MP"
+
+[node name="MPBar" type="ProgressBar" parent="CanvasLayer/GridContainer2"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+show_percentage = false
+
+[node name="WelcomePanel" parent="CanvasLayer" instance=ExtResource("4_g8qtr")]
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("4_gs43n")
+
+[node name="Enemy" parent="." instance=ExtResource("4_7bxxh")]
+position = Vector2(970, 556)

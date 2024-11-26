@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://byiisoi76hfwq"]
+
+[ext_resource type="Script" path="res://scripts/player_data.gd" id="1_jjq2n"]
+
+[resource]
+script = ExtResource("1_jjq2n")
+species = "Elf"
+max_hp = 20
+hp = 20
+max_mp = 10
+mp = 10
+melee = 3
+magic = 4
+melee_def = 3
+magic_def = 5
+evasion = 4
+accuracy = 5
+crit = 1
+gold = 0
+weakness = Array[int]([])
+resistance = Array[int]([])

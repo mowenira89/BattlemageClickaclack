@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://duxcfh5gbg2mm"]
+
+[ext_resource type="Texture2D" uid="uid://b4u5p1ff37kv1" path="res://images/ui/pointer.png" id="1_rx0lk"]
+[ext_resource type="Theme" uid="uid://dgs8leglpsus8" path="res://Themes/blackfont38.tres" id="1_yle3w"]
+[ext_resource type="Texture2D" uid="uid://cj6m7aogrubis" path="res://images/ui/pointerdown.png" id="2_6ci3r"]
+[ext_resource type="Script" path="res://scripts/stat_box.gd" id="2_dxun1"]
+[ext_resource type="Texture2D" uid="uid://12gbhd4jsx07" path="res://images/ui/pointerdisabled.png" id="4_hl16x"]
+[ext_resource type="Texture2D" uid="uid://b8krjnyoe2lwh" path="res://images/ui/pointerdowndisabled.png" id="6_umur5"]
+
+[node name="HPBox" type="VBoxContainer"]
+theme = ExtResource("1_yle3w")
+script = ExtResource("2_dxun1")
+
+[node name="Up" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_rx0lk")
+texture_disabled = ExtResource("4_hl16x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.360422, 0.630771, 0.313789, 1)
+
+[node name="HPAmt" type="Label" parent="ColorRect"]
+layout_mode = 2
+offset_top = -27.0
+offset_right = 110.0
+offset_bottom = -4.0
+
+[node name="Down" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_6ci3r")
+texture_disabled = ExtResource("6_umur5")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(0.360422, 0.630771, 0.313789, 1)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -26.5
+offset_right = 55.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yle3w")
+text = "HP"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="Up" to="." method="_on_up_gui_input"]

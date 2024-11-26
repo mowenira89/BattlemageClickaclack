@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjotm3lts288c"]
+
+[ext_resource type="Theme" uid="uid://dgs8leglpsus8" path="res://Themes/blackfont38.tres" id="1_vmh38"]
+[ext_resource type="PackedScene" uid="uid://duxcfh5gbg2mm" path="res://scenes/ui/stat_box.tscn" id="2_fqkpi"]
+
+[node name="StatPicker" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vmh38")
+
+[node name="HPBox" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MPBox" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "MP"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MeleeBox" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "Melee"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MagicBox" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "Magic"
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="DefBox" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "Def"
+
+[node name="MarginContainer5" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MagDef" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "MagDef"
+
+[node name="MarginContainer6" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Speed" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "Speed"
+
+[node name="MarginContainer7" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MPRegen" parent="." instance=ExtResource("2_fqkpi")]
+layout_mode = 2
+stat = "MP Regen"
