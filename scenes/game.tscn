@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://yhrd2rctsfjj"]
+[gd_scene load_steps=8 format=3 uid="uid://yhrd2rctsfjj"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0v277"]
 [ext_resource type="Texture2D" uid="uid://cyo4m1sd5aadu" path="res://images/backdrop.png" id="1_1oavq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qshaj6yib8ap" path="res://scenes/enemy.tscn" id="4_7bxxh"]
 [ext_resource type="PackedScene" uid="uid://b5cdl2cxcrwy" path="res://scenes/ui/welcome_panel.tscn" id="4_g8qtr"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_gs43n"]
+[ext_resource type="Texture2D" uid="uid://bojpi1benclm1" path="res://images/ui/ninepatch.png" id="4_wcxqi"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0v277")
@@ -59,7 +60,79 @@ custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 show_percentage = false
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -337.0
+offset_top = -286.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Melee Weapon" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+custom_minimum_size = Vector2(150, 350)
+layout_mode = 2
+texture = ExtResource("4_wcxqi")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MagicWeapon" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+custom_minimum_size = Vector2(150, 350)
+layout_mode = 2
+texture = ExtResource("4_wcxqi")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Helm" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_wcxqi")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Helm2" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_wcxqi")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Helm3" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_wcxqi")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="WelcomePanel" parent="CanvasLayer" instance=ExtResource("4_g8qtr")]
+visible = false
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("4_gs43n")
