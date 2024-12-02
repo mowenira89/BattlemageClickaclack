@@ -1,20 +1,63 @@
-[gd_scene load_steps=8 format=3 uid="uid://yhrd2rctsfjj"]
+[gd_scene load_steps=22 format=3 uid="uid://yhrd2rctsfjj"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0v277"]
 [ext_resource type="Texture2D" uid="uid://cyo4m1sd5aadu" path="res://images/backdrop.png" id="1_1oavq"]
 [ext_resource type="Theme" uid="uid://dgs8leglpsus8" path="res://Themes/blackfont38.tres" id="3_46m08"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_83l0l"]
 [ext_resource type="PackedScene" uid="uid://qshaj6yib8ap" path="res://scenes/enemy.tscn" id="4_7bxxh"]
 [ext_resource type="PackedScene" uid="uid://b5cdl2cxcrwy" path="res://scenes/ui/welcome_panel.tscn" id="4_g8qtr"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_gs43n"]
-[ext_resource type="Texture2D" uid="uid://bojpi1benclm1" path="res://images/ui/ninepatch.png" id="4_wcxqi"]
+[ext_resource type="Script" path="res://scripts/states/menu_state.gd" id="4_okp4e"]
+[ext_resource type="Script" path="res://scripts/states/battle_start.gd" id="5_yn2ja"]
+[ext_resource type="Script" path="res://scripts/states/player_turn.gd" id="6_eie44"]
+[ext_resource type="Script" path="res://scripts/states/enemy_turn.gd" id="7_dg1t6"]
+[ext_resource type="Script" path="res://scripts/states/battle_end.gd" id="8_dgrsh"]
+[ext_resource type="Script" path="res://scripts/states/between_battle.gd" id="9_crpis"]
+[ext_resource type="Script" path="res://scripts/ui/enemy_hp_bar.gd" id="10_20p3t"]
+[ext_resource type="Script" path="res://scripts/states/between_turns.gd" id="10_ccy3h"]
+[ext_resource type="PackedScene" uid="uid://bfvimx51shuq2" path="res://scenes/ui/equip_ui.tscn" id="11_jabno"]
+[ext_resource type="PackedScene" uid="uid://cftbdirf2dfm7" path="res://scenes/ui/player_hpmpc.tscn" id="13_w5v1f"]
+[ext_resource type="PackedScene" uid="uid://c6u47y21jag8q" path="res://scenes/ui/victory_panel.tscn" id="17_mq5ki"]
+[ext_resource type="Script" path="res://scripts/message_container.gd" id="19_xyk4f"]
+[ext_resource type="PackedScene" uid="uid://btk2gh5w3tf1x" path="res://scenes/ui/main_menu.tscn" id="20_01h88"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vxkg"]
+bg_color = Color(0.00392157, 0.701961, 0, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0v277")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(958, 716)
+position = Vector2(920, 297)
 scale = Vector2(1.33919, 1)
 texture = ExtResource("1_1oavq")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_83l0l")
+
+[node name="Menu" type="Node" parent="StateMachine"]
+script = ExtResource("4_okp4e")
+
+[node name="BattleStart" type="Node" parent="StateMachine"]
+script = ExtResource("5_yn2ja")
+
+[node name="PlayerTurn" type="Node" parent="StateMachine"]
+script = ExtResource("6_eie44")
+
+[node name="EnemyTurn" type="Node" parent="StateMachine"]
+script = ExtResource("7_dg1t6")
+
+[node name="BattleEnd" type="Node" parent="StateMachine"]
+script = ExtResource("8_dgrsh")
+
+[node name="BetweenBattle" type="Node" parent="StateMachine"]
+script = ExtResource("9_crpis")
+
+[node name="BetweenTurns" type="Node" parent="StateMachine"]
+script = ExtResource("10_ccy3h")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("4_gs43n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -27,115 +70,33 @@ offset_bottom = 197.0
 [node name="EnemyHPBar" type="ProgressBar" parent="CanvasLayer/GridContainer"]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_3vxkg")
 show_percentage = false
+script = ExtResource("10_20p3t")
 
 [node name="EnemyNameLabel" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_46m08")
 
-[node name="GridContainer2" type="GridContainer" parent="CanvasLayer"]
-offset_left = 1420.0
-offset_top = 11.0
-offset_right = 1460.0
-offset_bottom = 51.0
-columns = 2
+[node name="PlayerHPMPC" parent="CanvasLayer" instance=ExtResource("13_w5v1f")]
 
-[node name="HP" type="Label" parent="CanvasLayer/GridContainer2"]
-layout_mode = 2
-theme = ExtResource("3_46m08")
-text = "HP "
-
-[node name="HPBar" type="ProgressBar" parent="CanvasLayer/GridContainer2"]
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-show_percentage = false
-
-[node name="MP" type="Label" parent="CanvasLayer/GridContainer2"]
-layout_mode = 2
-theme = ExtResource("3_46m08")
-text = "MP"
-
-[node name="MPBar" type="ProgressBar" parent="CanvasLayer/GridContainer2"]
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-show_percentage = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -337.0
-offset_top = -286.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Melee Weapon" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.466667)
-custom_minimum_size = Vector2(150, 350)
-layout_mode = 2
-texture = ExtResource("4_wcxqi")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="MagicWeapon" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.466667)
-custom_minimum_size = Vector2(150, 350)
-layout_mode = 2
-texture = ExtResource("4_wcxqi")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Helm" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.466667)
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("4_wcxqi")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="Helm2" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.466667)
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("4_wcxqi")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="Helm3" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0.466667)
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("4_wcxqi")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("11_jabno")]
 
 [node name="WelcomePanel" parent="CanvasLayer" instance=ExtResource("4_g8qtr")]
+
+[node name="VictoryPanel" parent="CanvasLayer" instance=ExtResource("17_mq5ki")]
+
+[node name="MessageContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("19_xyk4f")
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("20_01h88")]
 visible = false
 
-[node name="Player" type="Node" parent="."]
-script = ExtResource("4_gs43n")
-
 [node name="Enemy" parent="." instance=ExtResource("4_7bxxh")]
-position = Vector2(970, 556)
+position = Vector2(701, 533)

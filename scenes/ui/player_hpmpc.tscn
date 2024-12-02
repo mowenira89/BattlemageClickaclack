@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cftbdirf2dfm7"]
+
+[ext_resource type="Theme" uid="uid://dgs8leglpsus8" path="res://Themes/blackfont38.tres" id="1_e2bih"]
+[ext_resource type="Script" path="res://scripts/ui/player_hpmpc.gd" id="1_moc26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntp7l"]
+bg_color = Color(0.231373, 0.713726, 0.0196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdryj"]
+bg_color = Color(0.698039, 0.243137, 1, 1)
+
+[node name="PlayerHPMPC" type="GridContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -466.0
+offset_bottom = 164.0
+grow_horizontal = 0
+theme = ExtResource("1_e2bih")
+columns = 2
+script = ExtResource("1_moc26")
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_e2bih")
+text = "HP "
+
+[node name="HPBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ntp7l")
+show_percentage = false
+
+[node name="MP" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_e2bih")
+text = "MP"
+
+[node name="MPBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdryj")
+show_percentage = false
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "c "
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_e2bih")

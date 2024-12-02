@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://ytdspl2loerg"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://ytdspl2loerg"]
 
 [ext_resource type="Texture2D" uid="uid://1smmysmxtd3q" path="res://images/enemies/figurine.png" id="1_b1noh"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_3e1jb"]
 [ext_resource type="Script" path="res://scripts/enemy_data.gd" id="2_82oqo"]
+[ext_resource type="Resource" uid="uid://d1go48slcbr7" path="res://resources/moves/dotdotdot.tres" id="3_8uhf7"]
 
 [resource]
 script = ExtResource("2_82oqo")
@@ -13,14 +15,16 @@ level = 1
 rarity = 40
 boss = false
 flavor_text = "A souless wooden figurine, carved with malice."
+moves = Array[ExtResource("2_3e1jb")]([ExtResource("3_8uhf7")])
 max_hp = 3
 hp = 3
 max_mp = 0
 mp = 0
 melee = 0
 magic = 0
-melee_def = 0
-magic_def = 0
+melee_def = 3
+magic_def = 3
+speed = 0
 evasion = 0
 accuracy = 0
 crit = 0

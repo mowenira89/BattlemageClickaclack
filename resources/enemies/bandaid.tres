@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://d0q84heuf0mtv"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://d0q84heuf0mtv"]
 
 [ext_resource type="Texture2D" uid="uid://ddir5u2c785n1" path="res://images/enemies/bandaid.png" id="1_yp3qo"]
 [ext_resource type="Script" path="res://scripts/enemy_data.gd" id="2_rcuoj"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_wo0np"]
+[ext_resource type="Resource" uid="uid://d1go48slcbr7" path="res://resources/moves/dotdotdot.tres" id="3_beeo1"]
 
 [resource]
 script = ExtResource("2_rcuoj")
@@ -13,14 +15,16 @@ level = 1
 rarity = 100
 boss = false
 flavor_text = "A discarded bandaid from an unknown wound."
+moves = Array[ExtResource("2_wo0np")]([ExtResource("3_beeo1")])
 max_hp = 1
 hp = 1
 max_mp = 0
 mp = 0
 melee = 0
 magic = 0
-melee_def = 0
-magic_def = 0
+melee_def = 1
+magic_def = 1
+speed = 0
 evasion = 0
 accuracy = 0
 crit = 0

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://tm8owp88ygg"]
+
+[ext_resource type="Texture2D" uid="uid://c87d8538qowa7" path="res://images/enemies/mouse.png" id="1_ikot0"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_4mi2d"]
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="3_atmay"]
+[ext_resource type="Script" path="res://scripts/effects/display_message.gd" id="4_uskdv"]
+[ext_resource type="Script" path="res://scripts/enemy_data.gd" id="5_kthtd"]
+
+[sub_resource type="Resource" id="Resource_bplsj"]
+script = ExtResource("4_uskdv")
+message = "squeak"
+target = 0
+
+[sub_resource type="Resource" id="Resource_bxkpm"]
+script = ExtResource("2_4mi2d")
+name = "Squeak"
+unmissable = true
+accuracy = 0
+effect = Array[ExtResource("3_atmay")]([SubResource("Resource_bplsj")])
+
+[resource]
+script = ExtResource("5_kthtd")
+image = ExtResource("1_ikot0")
+name = "Mouse"
+data_name = "mouse"
+type = 2
+level = 1
+rarity = 100
+boss = false
+flavor_text = "Even a mouse can deal a blow in the name of darkness. Slay this one before it does. "
+moves = Array[ExtResource("2_4mi2d")]([SubResource("Resource_bxkpm")])
+max_hp = 2
+hp = 2
+max_mp = 0
+mp = 0
+melee = 1
+magic = 0
+melee_def = 1
+magic_def = 1
+speed = 7
+evasion = 120
+accuracy = 100
+crit = 0
+gold = 2
+weakness = Array[int]([])
+resistance = Array[int]([])

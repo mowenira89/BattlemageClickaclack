@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2a4k6nf1ni68"]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="1_ye8tf"]
+
+[sub_resource type="Theme" id="Theme_0xnxj"]
+Button/font_sizes/font_size = 50
+
+[node name="Inventory" type="VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme = SubResource("Theme_0xnxj")
+script = ExtResource("1_ye8tf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 900)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Inventory"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

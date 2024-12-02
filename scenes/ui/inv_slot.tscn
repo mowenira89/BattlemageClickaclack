@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcuomvcejjgsb"]
+
+[ext_resource type="Script" path="res://scripts/ui/inv_slot.gd" id="1_h8t74"]
+
+[sub_resource type="Theme" id="Theme_phqmc"]
+Button/font_sizes/font_size = 35
+
+[node name="InvSlot" type="Panel"]
+self_modulate = Color(0.454902, 0.466667, 1, 0.576471)
+custom_minimum_size = Vector2(450, 50)
+offset_right = 450.0
+offset_bottom = 50.0
+theme = SubResource("Theme_phqmc")
+script = ExtResource("1_h8t74")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 50.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Item" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Quantity" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="OptionPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = -135.0
+offset_right = 450.0
+offset_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Use" type="Button" parent="OptionPanel/VBoxContainer"]
+layout_mode = 2
+text = "EQUIP"
+
+[node name="Throw" type="Button" parent="OptionPanel/VBoxContainer"]
+layout_mode = 2
+text = "THROW"
+
+[node name="Liquidate" type="Button" parent="OptionPanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "LIQUIDATE"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="OptionPanel/VBoxContainer/Use" to="." method="_on_use_pressed"]

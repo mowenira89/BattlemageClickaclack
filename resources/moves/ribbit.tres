@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Move" load_steps=5 format=3 uid="uid://dafu7y83oa6me"]
+
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="1_7axnk"]
+[ext_resource type="Script" path="res://scripts/effects/display_message.gd" id="2_5gkak"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="3_fn1sh"]
+
+[sub_resource type="Resource" id="Resource_msylt"]
+script = ExtResource("2_5gkak")
+message = "ribbit"
+target = 0
+
+[resource]
+script = ExtResource("3_fn1sh")
+name = "ribbit"
+unmissable = true
+accuracy = 0
+effect = Array[ExtResource("1_7axnk")]([SubResource("Resource_msylt")])

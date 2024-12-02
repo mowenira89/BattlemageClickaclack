@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_jkc0u")
 species = "Dwarf"
+mp_regen = 1
 max_hp = 30
 hp = 30
 max_mp = 5
@@ -13,6 +14,7 @@ melee = 5
 magic = 2
 melee_def = 5
 magic_def = 3
+speed = 3
 evasion = 4
 accuracy = 100
 crit = 1

@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dvqnar603us0d"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://dvqnar603us0d"]
 
 [ext_resource type="Texture2D" uid="uid://b37dqo605e0rd" path="res://images/enemies/frog.png" id="1_iltqf"]
 [ext_resource type="Script" path="res://scripts/enemy_data.gd" id="2_m30ch"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_oxc8y"]
+[ext_resource type="Resource" uid="uid://dafu7y83oa6me" path="res://resources/moves/ribbit.tres" id="3_3n5b6"]
 
 [resource]
 script = ExtResource("2_m30ch")
@@ -12,18 +14,20 @@ type = 2
 level = 1
 rarity = 100
 boss = false
-flavor_text = "Green frog as common as they come. But this one is evil."
-max_hp = 0
-hp = 0
+flavor_text = "Green frog as common as they come. Is it evil? Better kill it to be sure. "
+moves = Array[ExtResource("2_oxc8y")]([ExtResource("3_3n5b6")])
+max_hp = 2
+hp = 2
 max_mp = 0
 mp = 0
-melee = 0
-magic = 0
-melee_def = 0
-magic_def = 0
-evasion = 0
-accuracy = 0
+melee = 1
+magic = 2
+melee_def = 1
+magic_def = 4
+speed = 2
+evasion = 100
+accuracy = 100
 crit = 0
-gold = 0
+gold = 3
 weakness = Array[int]([])
 resistance = Array[int]([])

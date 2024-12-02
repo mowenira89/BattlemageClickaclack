@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://cacwf1qx2116s"]
+
+[ext_resource type="Texture2D" uid="uid://r10n0k3vsvge" path="res://images/enemies/slime1.png" id="1_ywvyi"]
+[ext_resource type="Script" path="res://scripts/enemy_data.gd" id="2_fvffa"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_oq4ev"]
+[ext_resource type="Resource" uid="uid://nydxx18dmi0" path="res://resources/moves/slime_assault.tres" id="3_rhih3"]
+
+[resource]
+script = ExtResource("2_fvffa")
+image = ExtResource("1_ywvyi")
+name = "Slime"
+data_name = "slime"
+type = 0
+level = 1
+rarity = 70
+boss = false
+flavor_text = "Semi-sentient drippings of the goo god Googor. Destroy them all."
+moves = Array[ExtResource("2_oq4ev")]([ExtResource("3_rhih3")])
+max_hp = 15
+hp = 15
+max_mp = 0
+mp = 0
+melee = 2
+magic = 0
+melee_def = 3
+magic_def = 2
+speed = 2
+evasion = 80
+accuracy = 100
+crit = 0
+gold = 4
+weakness = Array[int]([])
+resistance = Array[int]([])

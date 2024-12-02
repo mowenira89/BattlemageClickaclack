@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://d2m8morxmromc"]
+
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="1_25d56"]
+[ext_resource type="Script" path="res://scripts/effects/effect_melee_damage.gd" id="2_uld2t"]
+[ext_resource type="Texture2D" uid="uid://elw0akk1q3ed" path="res://icon.svg" id="3_jnk52"]
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="3_jvajy"]
+
+[sub_resource type="Resource" id="Resource_r7ayu"]
+script = ExtResource("2_uld2t")
+min_damage = 1
+max_damage = 2
+
+[resource]
+script = ExtResource("3_jvajy")
+image = ExtResource("3_jnk52")
+item_name = "Pointy Stick"
+item_type = 0
+damage_min = 0
+damage_max = 3
+accuracy = 0
+unmissable = false
+effect = Array[ExtResource("1_25d56")]([SubResource("Resource_r7ayu")])
+flavor_text = "The perfect stick is hard to find. It is not this one, but it is sharp. "
+mp_cost = 0

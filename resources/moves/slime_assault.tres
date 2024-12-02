@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Move" load_steps=5 format=3 uid="uid://nydxx18dmi0"]
+
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="1_wu277"]
+[ext_resource type="Script" path="res://scripts/move.gd" id="2_575b2"]
+[ext_resource type="Script" path="res://scripts/effects/display_message.gd" id="2_nfiae"]
+
+[sub_resource type="Resource" id="Resource_qg2hr"]
+script = ExtResource("2_nfiae")
+message = "Your speed has been reduced by a slimey assault!"
+target = 0
+
+[resource]
+script = ExtResource("2_575b2")
+name = "Slime Assault"
+unmissable = false
+accuracy = 50
+effect = Array[ExtResource("1_wu277")]([SubResource("Resource_qg2hr")])

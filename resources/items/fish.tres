@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://dy5km673lbyg6"]
+
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="1_sg4i1"]
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="2_kyrpq"]
+[ext_resource type="Script" path="res://scripts/effects/effect_melee_damage.gd" id="2_q5vov"]
+[ext_resource type="Script" path="res://scripts/effects/effect_fish.gd" id="3_qihcg"]
+[ext_resource type="Texture2D" uid="uid://elw0akk1q3ed" path="res://icon.svg" id="4_sfa35"]
+
+[sub_resource type="Resource" id="Resource_h4c6j"]
+script = ExtResource("2_q5vov")
+
+[sub_resource type="Resource" id="Resource_wjt5c"]
+script = ExtResource("3_qihcg")
+
+[resource]
+script = ExtResource("2_kyrpq")
+image = ExtResource("4_sfa35")
+item_name = "Fish"
+item_type = 0
+damage_min = 1
+damage_max = 2
+accuracy = 90
+effect = Array[ExtResource("1_sg4i1")]([SubResource("Resource_h4c6j"), SubResource("Resource_wjt5c")])
+flavor_text = "Wild caught river fish, flash frozen for maximum carnage.  "
+mp_cost = 0

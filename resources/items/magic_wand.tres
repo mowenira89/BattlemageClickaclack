@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b77dw8ki04777"]
+
+[ext_resource type="Script" path="res://scripts/effects/effect.gd" id="1_w7tlp"]
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="2_qfvqv"]
+[ext_resource type="Texture2D" uid="uid://elw0akk1q3ed" path="res://icon.svg" id="2_tb3b5"]
+
+[resource]
+script = ExtResource("2_qfvqv")
+image = ExtResource("2_tb3b5")
+item_name = "Stage Magician Wand"
+item_type = 1
+accuracy = 90
+unmissable = false
+effect = Array[ExtResource("1_w7tlp")]([])
+flavor_text = "The instrument of an unknown stage magician, found amongst refuse. 
+
+"
+mp_cost = 0
+throw_effect = Array[ExtResource("1_w7tlp")]([])
